@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { AuthService } from './auth.service';
+import { map } from 'rxjs/operators';
+import { isNullOrUndefined } from 'util';
 // import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -10,16 +11,18 @@ import { AuthService } from './auth.service';
 })
 export class ApiService {
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
-   headers : HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json",
-     "Authorization": this.authService.getToken()
-   }); 
+  getAllBooking() {
+    let headers_: HttpHeaders = new HttpHeaders();
+    headers_ = headers_.append('app', 'APP_BCK');
+    headers_ = headers_.append('adminemail', 'testapis@tuten.cl');
+    headers_ = headers_.append('token', 'testapis@tuten.cl1e40i6ae4ojampjpuquom4o3pg');
+    headers_ = headers_.append('Accept', 'application/json');
+    // console.log(headers_);
 
-   getAll() {
-    const url = 'https://jsonplaceholder.typicode.com/todos';
-    return this.http.get(url);
-   }
+    const url = 'https://dev.tuten.cl:443/TutenREST/rest/user/contacto@tuten.cl/bookings?current=true';
+    return this.http.get(url, {headers: headers_ }).pipe(map(data=> data)); 
+  }
 
 }
