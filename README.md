@@ -37,5 +37,5 @@ Run `ng serve` to load project
 
 Angular -> 9.0.1
 RxJS -> 6.5.4
-TysScript -> 3.7.5
+TypeScript -> 3.7.5
 Angular Material -> 9.0.0
