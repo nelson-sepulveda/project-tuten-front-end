@@ -1,0 +1,29 @@
+<section id="login" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" name="email" [(ngModel)]="user.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" [(ngModel)]="user.password"  id="exampleInputPassword1">
+          </div>
+          <div class="btn-login-sub">
+            <button type="submit" [ngClass]="{'disabled': spinner}" class="btn btn-outline-primary">Iniciar Sesion</button>
+          </div>
+        </form><br>
+        <div style="text-align: center;">
+          <div class="spinner-grow text-primary" *ngIf="spinner" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="isPasswordError">
+          Contraseña Errada
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
