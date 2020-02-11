@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Running project
+
+Run `npm install` 
+npm install to load dependencies
+
+Run `ng serve` to load project
+
+## Versions
+
+Angular -> 9.0.1
+RxJS -> 6.5.4
+TysScript -> 3.7.5
+Angular Material -> 9.0.0
